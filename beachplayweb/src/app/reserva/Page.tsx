@@ -72,7 +72,7 @@ export default function ReservaQuadra() {
                     <hr className="w-full border-t-2 border-black-300 mt-0 mb-14" />
 
 
-                    {/* Select de Quadra */}
+                    {/*Quadra*/}
                     <div className="mb-3">
                         <select
                             id="quadra"
@@ -86,7 +86,7 @@ export default function ReservaQuadra() {
                         </select>
                     </div>
 
-                    {/* Seletor de Data */}
+                    {/*Data*/}
                     <div className="relative w-[540px] h-[55px] mb-3">
                         <DatePicker
                             selected={selectedDate}
@@ -98,7 +98,7 @@ export default function ReservaQuadra() {
                         />
                     </div>
 
-                    {/* Select de Horário */}
+                    {/*Horário*/}
                     <div className="mb-4">
                         <select
                             id="horario"
