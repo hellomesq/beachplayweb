@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from "react";
@@ -14,10 +15,11 @@ export default function ReservaQuadra() {
     const generateTimeOptions = () => {
         const times = [];
         for (let hour = 7; hour < 22; hour += 2) {
-            times.push(`${hour}h`);
+            const formattedHour = hour.toString().padStart(2, "0"); 
+            times.push(`${formattedHour}:00:00`);
         }
         return times;
-    };
+    };    
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -27,12 +29,14 @@ export default function ReservaQuadra() {
             return;
         }
 
+        console.log("Horário selecionado:", selectedTime); 
+
         const reservationData = {
-            quadra: selectedQuadra,
+            quadra: selectedQuadra === "Quadra 1" ? 1 : 2,
             date: selectedDate,
             time: selectedTime,
         };
-
+        
         try {
             const response = await fetch("http://localhost:8080/reservations", {
                 method: "POST",
@@ -41,10 +45,12 @@ export default function ReservaQuadra() {
                 },
                 body: JSON.stringify(reservationData),
             });
-
+        
             if (response.ok) {
                 alert("Reserva feita com sucesso!");
             } else {
+                const errorText = await response.text(); 
+                console.log("Erro ao fazer a reserva:", errorText);  
                 alert("Erro ao fazer a reserva.");
             }
         } catch (error) {
@@ -52,7 +58,7 @@ export default function ReservaQuadra() {
             alert("Erro de conexão.");
         }
     };
-
+        
     return (
         <>
             <NavBar active="inicio" />
