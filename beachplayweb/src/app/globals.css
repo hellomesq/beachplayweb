@@ -4,6 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --bg-container: rgba(217, 217, 217, 0.19);
+  --btn-reserva: #F3DE8A;
 }
 
 @theme inline {
@@ -29,4 +30,29 @@ body {
 
 .bg-container {
   background-color: var(--bg-container);
+}
+
+.btn-reserva:hover {
+  background-color: var(--btn-reserva);
+}
+
+.react-datepicker__input-container input::placeholder{
+  color: black; 
+  opacity: 1; 
+  font-size: 16px;
+ 
+}
+
+.react-datepicker__input-container input {
+  border-radius: 12px; 
+  cursor:pointer;
+} 
+
+select{
+  color: black;
+  opacity: 1; 
+  font-size: 16px;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  cursor:pointer;
 }

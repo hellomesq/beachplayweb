@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendarAlt } from 'react-icons/fa';
 
 export default function ReservaQuadra() {
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -54,20 +55,23 @@ export default function ReservaQuadra() {
     return (
         <main className="flex justify-center items-center h-screen">
             <div className="bg-container p-6 rounded-lg shadow-md w-[700px] h-[400px] flex flex-col items-center">
-                <h2 className="text-lg font-bold mb-14 flex justify-between w-full self-start mt-2">
-                    Selecione a data
-                    <span className="text-xl">📅</span>
-                </h2>
+            <h2 className="text-lg flex justify-between w-full self-start mt-2 uppercase tracking-wide">
+  Selecione a data
+  <FaCalendarAlt className="text-xl" />
+</h2>
+
+<hr className="w-full border-t-2 border-black-300 mt-0 mb-14" />
+
 
                 {/* Select de Quadra */}
                 <div className="mb-3">
                     <select
                         id="quadra"
-                        className="w-[540px] h-[55px] p-2 border rounded text-lg"
+                        className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
                         onChange={(e) => setSelectedQuadra(e.target.value)}
                         value={selectedQuadra}
                     >
-                        <option>Selecione a quadra</option>
+                        <option value="">Selecione a quadra</option>
                         <option value="Quadra 1">Quadra 1</option>
                         <option value="Quadra 2">Quadra 2</option>
                     </select>
@@ -79,8 +83,8 @@ export default function ReservaQuadra() {
                         selected={selectedDate}
                         onChange={(date: Date | null) => setSelectedDate(date)}
                         dateFormat="dd/MM/yyyy"
-                        className="w-[540px] h-[55px] p-2 border rounded text-lg"
-                        placeholderText="Selecionar data"
+                        className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
+                        placeholderText="Selecione a data"
                         minDate={new Date()}
                     />
                 </div>
@@ -89,11 +93,11 @@ export default function ReservaQuadra() {
                 <div className="mb-4">
                     <select
                         id="horario"
-                        className="w-[540px] h-[55px] p-2 border rounded text-lg"
+                        className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
                         value={selectedTime}
                         onChange={(e) => setSelectedTime(e.target.value)}
                     >
-                        <option>Selecione o horário</option>
+                        <option value="">Selecione o horário</option>
                         {generateTimeOptions().map((time) => (
                             <option key={time} value={time}>
                                 {time}
@@ -103,14 +107,13 @@ export default function ReservaQuadra() {
                 </div>
 
                 {/* Botões */}
-                <div className="flex gap-4 w-full justify-end pr-6">
-                    <button className="w-[100px] h-[55px] py-3 rounded-lg text-black hover:bg-gray-400 transition-all">
+                <div className="flex gap-3 w-full justify-end pr-12">
+                    <button className="w-[100px] h-[35px] font-semibold rounded-lg text-black hover:bg-gray-400 transition-all">
                         Cancelar
                     </button>
                     <button
                         onClick={handleSubmit}
-                        className="w-[100px] h-[55px] py-3 rounded-lg text-black hover:bg-blue-700 transition-all"
-                    >
+                        className="w-[100px] h-[35px] font-semibold rounded-lg text-black btn-reserva transition-all">
                         Reservar
                     </button>
                 </div>
