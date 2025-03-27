@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from 'react-icons/fa';
+import NavBar from "../components/Navbar";
 
 export default function ReservaQuadra() {
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -53,71 +54,74 @@ export default function ReservaQuadra() {
     };
 
     return (
-        <main className="flex justify-center items-center h-screen">
-            <div className="bg-container p-6 rounded-lg shadow-md w-[700px] h-[400px] flex flex-col items-center">
-            <h2 className="text-lg flex justify-between w-full self-start mt-2 uppercase tracking-wide">
-  Selecione a data
-  <FaCalendarAlt className="text-xl" />
-</h2>
+        <>
+            <NavBar active="inicio" />
+            <main>
+                <div className="bg-container p-6 rounded-lg shadow-md w-[700px] h-[400px] flex flex-col items-center">
+                    <h2 className="text-lg flex justify-between w-full self-start mt-2 uppercase tracking-wide">
+                        Selecione a data
+                        <FaCalendarAlt className="text-xl" />
+                    </h2>
 
-<hr className="w-full border-t-2 border-black-300 mt-0 mb-14" />
+                    <hr className="w-full border-t-2 border-black-300 mt-0 mb-14" />
 
 
-                {/* Select de Quadra */}
-                <div className="mb-3">
-                    <select
-                        id="quadra"
-                        className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
-                        onChange={(e) => setSelectedQuadra(e.target.value)}
-                        value={selectedQuadra}
-                    >
-                        <option value="">Selecione a quadra</option>
-                        <option value="Quadra 1">Quadra 1</option>
-                        <option value="Quadra 2">Quadra 2</option>
-                    </select>
+                    {/* Select de Quadra */}
+                    <div className="mb-3">
+                        <select
+                            id="quadra"
+                            className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
+                            onChange={(e) => setSelectedQuadra(e.target.value)}
+                            value={selectedQuadra}
+                        >
+                            <option value="">Selecione a quadra</option>
+                            <option value="Quadra 1">Quadra 1</option>
+                            <option value="Quadra 2">Quadra 2</option>
+                        </select>
+                    </div>
+
+                    {/* Seletor de Data */}
+                    <div className="relative w-[540px] h-[55px] mb-3">
+                        <DatePicker
+                            selected={selectedDate}
+                            onChange={(date: Date | null) => setSelectedDate(date)}
+                            dateFormat="dd/MM/yyyy"
+                            className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
+                            placeholderText="Selecione a data"
+                            minDate={new Date()}
+                        />
+                    </div>
+
+                    {/* Select de Horário */}
+                    <div className="mb-4">
+                        <select
+                            id="horario"
+                            className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
+                            value={selectedTime}
+                            onChange={(e) => setSelectedTime(e.target.value)}
+                        >
+                            <option value="">Selecione o horário</option>
+                            {generateTimeOptions().map((time) => (
+                                <option key={time} value={time}>
+                                    {time}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {/* Botões */}
+                    <div className="flex gap-3 w-full justify-end pr-12">
+                        <button className="w-[100px] h-[35px] font-semibold rounded-lg text-black hover:bg-gray-400 transition-all">
+                            Cancelar
+                        </button>
+                        <button
+                            onClick={handleSubmit}
+                            className="w-[100px] h-[35px] font-semibold rounded-lg text-black btn-reserva transition-all">
+                            Reservar
+                        </button>
+                    </div>
                 </div>
-
-                {/* Seletor de Data */}
-                <div className="relative w-[540px] h-[55px] mb-3">
-                    <DatePicker
-                        selected={selectedDate}
-                        onChange={(date: Date | null) => setSelectedDate(date)}
-                        dateFormat="dd/MM/yyyy"
-                        className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
-                        placeholderText="Selecione a data"
-                        minDate={new Date()}
-                    />
-                </div>
-
-                {/* Select de Horário */}
-                <div className="mb-4">
-                    <select
-                        id="horario"
-                        className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
-                        value={selectedTime}
-                        onChange={(e) => setSelectedTime(e.target.value)}
-                    >
-                        <option value="">Selecione o horário</option>
-                        {generateTimeOptions().map((time) => (
-                            <option key={time} value={time}>
-                                {time}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-
-                {/* Botões */}
-                <div className="flex gap-3 w-full justify-end pr-12">
-                    <button className="w-[100px] h-[35px] font-semibold rounded-lg text-black hover:bg-gray-400 transition-all">
-                        Cancelar
-                    </button>
-                    <button
-                        onClick={handleSubmit}
-                        className="w-[100px] h-[35px] font-semibold rounded-lg text-black btn-reserva transition-all">
-                        Reservar
-                    </button>
-                </div>
-            </div>
-        </main>
+            </main>
+        </>
     );
 }
