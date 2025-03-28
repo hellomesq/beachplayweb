@@ -62,7 +62,21 @@ export default function ReservaQuadra() {
     return (
         <>
             <NavBar active="inicio" />
-            <main className="flex justify-center items-center h-screen">
+            <main className="flex flex-col items-center justify-center min-h-screen px-6">
+                <h1 className="text-3xl font-bold text-center mb-2">
+                    Garanta sua quadra de areia agora!
+                </h1>
+                <p className="text-lg text-center text-gray-700 max-w-2xl mb-8">
+                    Reserve seu espaço para jogar vôlei sem preocupações. <br />
+                    Escolha o horário, chame a galera e aproveite!
+                </p>
+
+                <div className="bg-container p-6 rounded-lg shadow-md w-[700px] flex flex-col items-center">
+                    <h2 className="text-2xl font-semibold text-center mb-4">
+                        Faça a sua reserva
+                    </h2>
+                    </div>
+                
                 <div className="bg-container p-6 rounded-lg shadow-md w-[700px] h-[400px] flex flex-col items-center">
                     <h2 className="text-lg flex justify-between w-full self-start mt-2 uppercase tracking-wide">
                         Selecione a data
