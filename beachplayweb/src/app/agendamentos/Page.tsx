@@ -40,7 +40,7 @@ export default function HistoricoAgendamentos() {
       <h1 className="text-2xl font-bold mb-6">Histórico de Agendamentos</h1>
       <div className="w-full max-w-2xl space-y-4">
         {agendamentos.length === 0 ? (
-          <p className="text-gray-600">Nenhum agendamento encontrado.</p>
+          <p className="text-gray-600 flex justify-center items-center h-screen">Nenhum agendamento encontrado.</p>
         ) : (
           agendamentos.map((agendamento) => (
             <div
