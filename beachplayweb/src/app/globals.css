@@ -1,59 +1,66 @@
-
 @import "tailwindcss";
 
+/* Definição das variáveis de cor */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --bg-container: rgba(217, 217, 217, 0.19);
-  --btn-reserva: #F3DE8A;
+  --background: #171717; /* Cor de texto (foreground) */
+  --foreground: #ffffff; /* Cor de fundo (background) */
+  --bg-container: rgba(217, 217, 217, 0.19); /* Cor do fundo do container */
+  --btn-reserva: #F3DE8A; /* Cor do botão de reserva */
+  --bg-nav: rgba(0, 0, 255, 0.678); /* Cor de fundo da Navbar (Azul com opacidade) */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Modo escuro (dark mode) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --bg-fundo: #fff;
+    --background: #ffffff; /* Cor de texto no modo escuro */
+    --foreground: #171717; /* Cor de fundo no modo escuro */
+    --bg-container: rgba(217, 217, 217, 0.19);
+    --btn-reserva: #F3DE8A;
   }
 }
 
+/* Corpo da página */
 body {
-  background: var(--bg-fundo);
-  color: var(--background);
+  background: var(--foreground); /* Fundo do corpo da página */
+  color: var(--background); /* Cor do texto */
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
+/* Estilo para o fundo de containers */
 .bg-container {
-  background-color: var(--bg-container);
+  background-color: var(--bg-container); /* Cor do fundo do container */
 }
 
+/* Estilo para o botão de reserva */
 .btn-reserva:hover {
-  background-color: var(--btn-reserva);
+  background-color: var(--btn-reserva); /* Cor do botão de reserva ao passar o mouse */
 }
 
-.react-datepicker__input-container input::placeholder{
-  color: black; 
-  opacity: 1; 
+/* Estilo dos campos de input do DatePicker */
+.react-datepicker__input-container input::placeholder {
+  color: black;
+  opacity: 1;
   font-size: 16px;
- 
 }
 
 .react-datepicker__input-container input {
-  border-radius: 12px; 
-  cursor:pointer;
-} 
+  border-radius: 12px;
+  cursor: pointer;
+}
 
-select{
+/* Estilo para os selects */
+select {
   color: black;
-  opacity: 1; 
+  opacity: 1;
   font-size: 16px;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 12px;
-  cursor:pointer;
+  cursor: pointer;
+}
+
+/* Estilo para a Navbar */
+.navbar {
+  background-color: var(--bg-nav); 
 }

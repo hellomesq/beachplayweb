@@ -39,9 +39,9 @@ export default function HistoricoAgendamentos() {
 
   return (
     <>
-      <NavBar active="inicio" />
+      <NavBar active="agendamentos" />
       <main className="flex flex-col items-center p-6 min-h-screen bg-gray-100">
-        <h1 className="text-2xl font-bold mb-6">Histórico de Agendamentos</h1>
+      <h1 className="text-2xl font-bold mt-16 text-right">Histórico de Agendamentos</h1>
         <div className="w-full max-w-2xl space-y-4">
           {agendamentos.length === 0 ? (
             <p className="text-gray-600">Nenhum agendamento encontrado.</p>

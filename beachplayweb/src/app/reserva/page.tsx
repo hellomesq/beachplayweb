@@ -61,7 +61,7 @@ export default function ReservaQuadra() {
         
     return (
         <>
-            <NavBar active="reserva" />
+            <NavBar active="inicio" />
             <main className="flex justify-center items-center h-screen">
                 <div className="bg-container p-6 rounded-lg shadow-md w-[700px] h-[400px] flex flex-col items-center">
                     <h2 className="text-lg flex justify-between w-full self-start mt-2 uppercase tracking-wide">
