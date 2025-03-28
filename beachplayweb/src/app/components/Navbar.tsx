@@ -5,7 +5,7 @@ interface NavBarProps {
 }
 
 const links = [
-  { label: "inicio", href: "/inicio" },
+  { label: "inicio", href: "/reserva" },
   { label: "agendamentos", href: "/agendamentos" }
 ];
 

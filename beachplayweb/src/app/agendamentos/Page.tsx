@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-
+import NavBar from "../components/Navbar";
 interface Agendamento {
   id: number;
   quadra: string;
@@ -34,6 +34,8 @@ export default function HistoricoAgendamentos() {
   };
 
   return (
+    <>
+    <NavBar active="inicio" />
     <main className="flex flex-col items-center p-6 min-h-screen bg-gray-100">
       <h1 className="text-2xl font-bold mb-6">Histórico de Agendamentos</h1>
       <div className="w-full max-w-2xl space-y-4">
@@ -66,5 +68,6 @@ export default function HistoricoAgendamentos() {
         )}
       </div>
     </main>
+    </>
   );
 }

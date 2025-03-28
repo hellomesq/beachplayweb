@@ -1,4 +1,4 @@
-import ReservaQuadra from "./reserva/Page";
+import ReservaQuadra from "./reserva/page";
 
 export default function Home() {
   return (
