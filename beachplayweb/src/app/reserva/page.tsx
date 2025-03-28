@@ -47,7 +47,7 @@ export default function ReservaQuadra() {
 
             if (response.ok) {
                 alert("Reserva feita com sucesso!");
-                router.push("/historico"); // Redireciona para a página de agendamentos
+                router.push("/agendamentos"); // Redireciona para a página de agendamentos
             } else {
                 const errorText = await response.text(); 
                 console.log("Erro ao fazer a reserva:", errorText);  

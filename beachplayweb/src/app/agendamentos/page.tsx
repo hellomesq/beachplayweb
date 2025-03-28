@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import NavBar from "../components/Navbar";
 
 interface Agendamento {
@@ -41,13 +41,13 @@ export default function HistoricoAgendamentos() {
     <>
       <NavBar active="agendamentos" />
       <main className="flex flex-col items-center p-6 min-h-screen bg-gray-100">
-      <h1 className="text-2xl font-bold mt-16 text-right">Histórico de Agendamentos</h1>
-        <div className="w-full max-w-2xl space-y-4">
+        <h1 className="text-2xl font-bold mt-16 text-right">Histórico de Agendamentos</h1>
+        <div className="w-full max-w-2xl">
           {agendamentos.length === 0 ? (
             <p className="text-gray-600">Nenhum agendamento encontrado.</p>
           ) : (
             agendamentos.map((agendamento) => (
-              <div key={agendamento.id} className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+              <div key={agendamento.id} className="bg-white p-4 rounded-lg shadow-md flex justify-between items-center mb-4">
                 <div>
                   <h2 className="font-bold text-lg">Quadra {agendamento.quadra}</h2>
                   <p className="text-gray-600">Dia: {agendamento.data}</p>
