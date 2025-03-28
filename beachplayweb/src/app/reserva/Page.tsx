@@ -1,12 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import { useRouter } from "next/navigation"; // Para redirecionamento
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendarAlt } from 'react-icons/fa';
 import NavBar from "../components/Navbar";
 
 export default function ReservaQuadra() {
+    const router = useRouter();
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [selectedTime, setSelectedTime] = useState<string>("");
     const [selectedQuadra, setSelectedQuadra] = useState<string>("");
@@ -28,25 +30,24 @@ export default function ReservaQuadra() {
             return;
         }
 
-        console.log("Horário selecionado:", selectedTime); 
+        const formattedDate = selectedDate.toISOString().split("T")[0]; // Formato YYYY-MM-DD
 
         const reservationData = {
             quadra: selectedQuadra === "Quadra 1" ? 1 : 2,
-            date: selectedDate,
-            time: selectedTime,
+            data: formattedDate,
+            horario: selectedTime,
         };
-        
+
         try {
             const response = await fetch("http://localhost:8080/reservations", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(reservationData),
             });
-        
+
             if (response.ok) {
                 alert("Reserva feita com sucesso!");
+                router.push("/historico"); // Redireciona para a página de agendamentos
             } else {
                 const errorText = await response.text(); 
                 console.log("Erro ao fazer a reserva:", errorText);  
@@ -67,14 +68,11 @@ export default function ReservaQuadra() {
                         Selecione a data
                         <FaCalendarAlt className="text-xl" />
                     </h2>
-
                     <hr className="w-full border-t-2 border-black-300 mt-0 mb-14" />
 
-
-                    {/*Quadra*/}
+                    {/* Quadra */}
                     <div className="mb-3">
                         <select
-                            id="quadra"
                             className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
                             onChange={(e) => setSelectedQuadra(e.target.value)}
                             value={selectedQuadra}
@@ -85,11 +83,11 @@ export default function ReservaQuadra() {
                         </select>
                     </div>
 
-                    {/*Data*/}
+                    {/* Data */}
                     <div className="relative w-[540px] h-[55px] mb-3">
                         <DatePicker
                             selected={selectedDate}
-                            onChange={(date: Date | null) => setSelectedDate(date)}
+                            onChange={(date) => setSelectedDate(date)}
                             dateFormat="dd/MM/yyyy"
                             className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
                             placeholderText="Selecione a data"
@@ -97,10 +95,9 @@ export default function ReservaQuadra() {
                         />
                     </div>
 
-                    {/*Horário*/}
+                    {/* Horário */}
                     <div className="mb-4">
                         <select
-                            id="horario"
                             className="w-[540px] h-[55px] p-2 border rounded focus:outline-none"
                             value={selectedTime}
                             onChange={(e) => setSelectedTime(e.target.value)}
