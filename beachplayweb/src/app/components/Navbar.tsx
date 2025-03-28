@@ -11,7 +11,7 @@ const links = [
 
 export default function NavBar(props: NavBarProps) {
   const { active } = props;
-  const classActive = "border-b-4 border-emerald-600"; // Alteração aqui
+  const classActive = "border-b-4 border-risco"; 
 
   return (
     <nav className="navbar fixed top-0 w-full px-6 py-4 text-white z-10 flex items-center justify-between">

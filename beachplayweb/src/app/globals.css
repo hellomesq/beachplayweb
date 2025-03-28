@@ -65,3 +65,7 @@ select {
 .navbar {
   background-color: var(--bg-nav); 
 }
+
+.border-risco {
+  border-color: var(--risco); 
+}

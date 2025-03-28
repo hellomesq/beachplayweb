@@ -66,12 +66,12 @@ export default function ReservaQuadra() {
                 <h1 className="text-3xl font-bold text-center mb-2">
                     Garanta sua quadra de areia agora!
                 </h1>
-                <p className="text-lg text-center text-gray-700 max-w-2xl mb-8">
+                <p className="text-lg text-center text-gray-700 max-w-2xl mb-2">
                     Reserve seu espaço para jogar vôlei sem preocupações. <br />
                     Escolha o horário, chame a galera e aproveite!
                 </p>
 
-                <div className="bg-container p-6 rounded-lg shadow-md w-[700px] flex flex-col items-center">
+                <div className=" rounded-lg  w-[700px] flex flex-col items-center">
                     <h2 className="text-2xl font-semibold text-center mb-4">
                         Faça a sua reserva
                     </h2>
