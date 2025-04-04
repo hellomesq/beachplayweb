@@ -10,16 +10,8 @@
   --risco: rgba(243, 222, 138, 1);
 }
 
-/* Modo escuro (dark mode) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff; /* Cor de texto no modo escuro */
-    --foreground: #171717; /* Cor de fundo no modo escuro */
-    --bg-container: rgba(217, 217, 217, 0.19);
-    --btn-reserva: #F3DE8A;
-  }
-}
 
+  
 /* Corpo da página */
 body {
   background: var(--foreground); /* Fundo do corpo da página */

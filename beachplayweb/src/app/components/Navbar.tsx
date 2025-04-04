@@ -6,7 +6,8 @@ interface NavBarProps {
 
 const links = [
   { label: "inicio", href: "/reserva" },
-  { label: "agendamentos", href: "/agendamentos" }
+  { label: "agendamentos", href: "/agendamentos" },
+  { label: "login", href: "/login" }
 ];
 
 export default function NavBar(props: NavBarProps) {
@@ -28,3 +29,4 @@ export default function NavBar(props: NavBarProps) {
     </nav>
   );
 }
+
