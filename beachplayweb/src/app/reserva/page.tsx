@@ -60,16 +60,12 @@ export default function ReservaQuadra() {
     const formattedDate = selectedDate.toISOString().split("T")[0];
 
       const reservationData = {
-        id: Date.now(), 
         quadra: selectedQuadra === "Quadra 1" ? 1 : 2,
         data: formattedDate,
         horario: selectedTime,
-        usuario_id: userData.id, // <- alterado para snake_case
+        userId: userData.id, 
       };
       
-      
-      
-
     try {
       const response = await fetch("http://localhost:8080/reservations", {
         method: "POST",
